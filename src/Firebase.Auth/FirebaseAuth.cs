@@ -1,7 +1,8 @@
-﻿namespace Firebase.Auth
+﻿using System;
+using Newtonsoft.Json;
+
+namespace Firebase.Auth.REST
 {
-    using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The firebase auth.

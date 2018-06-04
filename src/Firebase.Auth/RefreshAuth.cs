@@ -1,4 +1,4 @@
-﻿namespace Firebase.Auth
+﻿namespace Firebase.Auth.REST
 {
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;

@@ -1,4 +1,7 @@
-﻿namespace Firebase.Auth.Tests
+﻿using System.Threading.Tasks;
+using Firebase.Auth.REST;
+
+namespace Firebase.Auth.Tests
 {
     using System;
 
@@ -7,9 +10,10 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Linq;
 
+    [TestClass]
     public class IntegrationTests
     {
-        private const string ApiKey = "<YOUR API KEY>";
+        private const string ApiKey = "AIzaSyCsyUX5TmSFK_8JZU35VZiGfY_0CHLJeBc";
 
         private const string FacebookAccessToken = "<FACEBOOK USER ACCESS TOKEN>";
         private const string FacebookTestUserFirstName = "Mark";
@@ -68,6 +72,53 @@
                     var exception = (FirebaseAuthException) e.InnerException;
                     exception.Reason.Should().Be(AuthErrorReason.UnknownEmailAddress);
                 }
+            }
+        }
+
+        [TestMethod]
+        public async Task CanLoginWithOldPersistedRefreshTokenForAnonymousLogin()
+        {
+            string refreshToken = "AK2wQ-w89JKmnCjHAYLqP3u74WSmJyXt7OcU1OQMTrQEnn4bYejS19CfCdHWI-G3m7kciA2RGYIdBv3-rHlhlZ6zC41khjXk8gVDjeb4CJGpWAhVuazNMIW9ksmBisJt6lhejXCw5DwLTOZk3wG06R_oZONEUG-DUDF3B3EIPfkGQuFJOiGBm-bMEQU1Qlan5qUXL9B4QSeWdZmnep9kfsxCX9kIx5tALXKTZGikl5KJaQ-XK6cNJGY";
+
+            using (var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey)))
+            {
+                FirebaseAuthLink refreshedAuth = await authProvider.RefreshAuthAsync(new FirebaseAuth
+                    {
+                        User = new User(),
+                        RefreshToken = refreshToken
+                    }
+                );
+                refreshedAuth.User = await authProvider.GetUserAsync(refreshedAuth.FirebaseToken);
+
+                Console.WriteLine(
+                    $"Refreshed anonymous log in: LocalID [{refreshedAuth.User.LocalId}] FederatedID [{refreshedAuth.User.FederatedId}] Access token [{refreshedAuth.FirebaseToken}] Refresh token [{refreshedAuth.RefreshToken}] Expires [{refreshedAuth.Created.AddSeconds(refreshedAuth.ExpiresIn)}]");
+            }
+        }
+
+        [TestMethod]
+        public async Task CanLoginWithPersistedAnonymousLogin()
+        {
+            string refreshToken;
+            using (var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey)))
+            {
+                FirebaseAuthLink anonAuth = await authProvider.SignInAnonymouslyAsync();
+                refreshToken = anonAuth.RefreshToken;
+                Console.WriteLine(
+                    $"Anonymous log in: LocalID [{anonAuth.User.LocalId}] FederatedID [{anonAuth.User.FederatedId}] Access token [{anonAuth.FirebaseToken}] Refresh token [{anonAuth.RefreshToken}] Expires [{anonAuth.Created.AddSeconds(anonAuth.ExpiresIn)}]");
+            }
+
+            using (var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey)))
+            {
+                FirebaseAuthLink refreshedAuth = await authProvider.RefreshAuthAsync(new FirebaseAuth
+                    {
+                        User = new User(),
+                        RefreshToken = refreshToken
+                    }
+                );
+                refreshedAuth.User = await authProvider.GetUserAsync(refreshedAuth.FirebaseToken);
+
+                Console.WriteLine(
+                    $"Refreshed anonymous log in: LocalID [{refreshedAuth.User.LocalId}] FederatedID [{refreshedAuth.User.FederatedId}] Access token [{refreshedAuth.FirebaseToken}] Refresh token [{refreshedAuth.RefreshToken}] Expires [{refreshedAuth.Created.AddSeconds(refreshedAuth.ExpiresIn)}]");
             }
         }
 

@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.ComponentModel;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
-namespace Firebase.Auth
+namespace Firebase.Auth.REST
 {
     /// <summary>
     /// The type of authentication. 

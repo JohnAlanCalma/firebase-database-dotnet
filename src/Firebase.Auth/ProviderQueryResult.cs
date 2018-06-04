@@ -1,9 +1,9 @@
-﻿namespace Firebase.Auth
-{
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
+namespace Firebase.Auth.REST
+{
     /// <summary>
     /// More info at <see cref="https://developers.google.com/identity/toolkit/web/reference/relyingparty/createAuthUri"/>.
     /// </summary>

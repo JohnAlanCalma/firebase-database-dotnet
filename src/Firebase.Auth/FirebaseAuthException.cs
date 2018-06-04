@@ -1,7 +1,7 @@
-﻿namespace Firebase.Auth
-{
-    using System;
+﻿using System;
 
+namespace Firebase.Auth.REST
+{
     public class FirebaseAuthException : Exception
     {
         public FirebaseAuthException(string requestUrl, string requestData, string responseData, Exception innerException, AuthErrorReason reason = AuthErrorReason.Undefined) 

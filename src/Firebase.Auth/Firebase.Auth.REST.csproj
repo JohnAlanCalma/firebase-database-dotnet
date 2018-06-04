@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFrameworks>netstandard1.1;net46</TargetFrameworks>
     <PackageId>FirebaseAuthentication.net</PackageId>
     <PackageVersion>3.0.7</PackageVersion>
     <Authors>Step Up Labs, Inc.</Authors>
@@ -15,9 +15,13 @@
     <Copyright>Step Up Labs, Inc. 2016</Copyright>
     <PackageTags>Firebase Auth Authentication Google Facebook Github Twitter</PackageTags>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
 </Project>

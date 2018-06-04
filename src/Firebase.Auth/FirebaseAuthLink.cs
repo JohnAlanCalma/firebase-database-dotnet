@@ -1,8 +1,8 @@
-﻿namespace Firebase.Auth
-{
-    using System;
-    using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
+namespace Firebase.Auth.REST
+{
     /// <summary>
     /// The firebase auth which can be linked to another credentials.
     /// </summary>

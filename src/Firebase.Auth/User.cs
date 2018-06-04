@@ -1,9 +1,8 @@
-﻿namespace Firebase.Auth
+﻿using System.ComponentModel;
+using Newtonsoft.Json;
+
+namespace Firebase.Auth.REST
 {
-    using System.ComponentModel;
-
-    using Newtonsoft.Json;
-
     /// <summary>
     /// Basic information about the logged in user.
     /// </summary>

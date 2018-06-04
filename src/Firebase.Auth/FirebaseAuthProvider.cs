@@ -1,14 +1,14 @@
-﻿namespace Firebase.Auth
-{
-    using System;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
+namespace Firebase.Auth.REST
+{
     /// <summary>
     /// The auth token provider.
     /// </summary>

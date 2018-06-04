@@ -1,7 +1,7 @@
-﻿namespace Firebase.Auth
-{
-    using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
+namespace Firebase.Auth.REST
+{
     /// <summary>
     /// The auth token provider.
     /// </summary>
