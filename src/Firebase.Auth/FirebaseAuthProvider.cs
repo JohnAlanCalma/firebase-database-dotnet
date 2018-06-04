@@ -61,9 +61,9 @@ namespace Firebase.Auth.REST
             var content = $"{{\"idToken\":\"{firebaseToken}\"}}";
             var response = await this.client.PostAsync(new Uri(string.Format(GoogleGetUser, this.authConfig.ApiKey)), new StringContent(content, Encoding.UTF8, "application/json"));
 
-            JObject resultJson = JObject.Parse(await response.Content.ReadAsStringAsync());
-            var user = JsonConvert.DeserializeObject<User>(resultJson["users"].First().ToString());
-            return user;
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeAnonymousType(json, new {users = new User[0]});
+            return result.users[0];
         }
 
         /// <summary>
