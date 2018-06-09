@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>netstandard1.1;net46</TargetFrameworks>
     <PackageId>FirebaseAuthentication.net</PackageId>
@@ -14,14 +13,13 @@
     <IncludeSymbols>True</IncludeSymbols>
     <Copyright>Step Up Labs, Inc. 2016</Copyright>
     <PackageTags>Firebase Auth Authentication Google Facebook Github Twitter</PackageTags>
+    <AssemblyName>FirebaseREST.Auth</AssemblyName>
+    <RootNamespace>FirebaseREST.Auth</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
-
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Reference Include="System.Net.Http" />
   </ItemGroup>
-
 </Project>

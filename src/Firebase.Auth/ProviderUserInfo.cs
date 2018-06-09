@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     public class ProviderUserInfo
     {

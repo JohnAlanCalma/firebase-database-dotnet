@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
 
     /// <summary>
@@ -15,7 +15,7 @@ namespace Firebase.Auth.REST
         }
 
         /// <summary>
-        /// Gets or sets the firebase token which can be used for authenticated queries. 
+        /// Gets or sets the firebase token which can be used for authenticated queries.
         /// </summary>
         [JsonProperty("idToken")]
         public string FirebaseToken
@@ -25,7 +25,7 @@ namespace Firebase.Auth.REST
         }
 
         /// <summary>
-        /// Gets or sets the refresh token of the underlying service which can be used to get a new access token. 
+        /// Gets or sets the refresh token of the underlying service which can be used to get a new access token.
         /// </summary>
         [JsonProperty("refreshToken")]
         public string RefreshToken
@@ -63,12 +63,12 @@ namespace Firebase.Auth.REST
         }
 
         /// <summary>
-        /// Specifies whether the token already expired. 
+        /// Specifies whether the token already expired.
         /// </summary>
         public bool IsExpired()
         {
             // include a small 10s window when the token is technically valid but it's a good idea to refresh it already.
-            return DateTime.Now > this.Created.AddSeconds(this.ExpiresIn - 10); 
+            return DateTime.Now > this.Created.AddSeconds(this.ExpiresIn - 10);
         }
     }
 }

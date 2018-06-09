@@ -1,8 +1,7 @@
-﻿namespace Firebase.Auth.REST
-{
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
+﻿using Newtonsoft.Json;
 
+namespace FirebaseREST.Auth
+{
     internal class RefreshAuth
     {
         [JsonProperty("access_token")]

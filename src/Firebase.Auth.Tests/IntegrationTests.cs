@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Firebase.Auth.REST;
+using FirebaseREST.Auth;
 
 namespace Firebase.Auth.Tests
 {
@@ -164,7 +164,7 @@ namespace Firebase.Auth.Tests
         public void CreateUserTest()
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            var email = $"abcd{new Random().Next()}@test.com"; 
+            var email = $"abcd{new Random().Next()}@test.com";
 
             var auth = authProvider.SignInWithEmailAndPasswordAsync(email, "test1234").Result;
 
@@ -219,10 +219,10 @@ namespace Firebase.Auth.Tests
 
             var auth = authProvider.SignInWithOAuthAsync(FirebaseAuthType.Facebook, FacebookAccessToken).Result;
             var originalToken = auth.FirebaseToken;
-            
+
             // simulate the token already expired
             auth.Created = DateTime.MinValue;
-            
+
             var freshAuth = auth.GetFreshAuthAsync().Result;
 
             freshAuth.FirebaseToken.Should().NotBe(originalToken);

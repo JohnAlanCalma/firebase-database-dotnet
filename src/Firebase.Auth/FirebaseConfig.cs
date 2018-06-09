@@ -1,4 +1,4 @@
-﻿namespace Firebase.Auth.REST
+﻿namespace FirebaseREST.Auth
 {
     /// <summary>
     /// The auth config. 

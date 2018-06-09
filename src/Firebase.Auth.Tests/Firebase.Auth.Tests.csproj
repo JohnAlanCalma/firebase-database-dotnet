@@ -72,6 +72,10 @@
       <Project>{70a39fce-33fb-43bf-b16c-4268354d315d}</Project>
       <Name>Firebase.Auth.REST</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Firebase.Auth\FirebaseREST.Auth.csproj">
+      <Project>{cd1b37b3-b95b-4974-b10b-5a7b43f68b48}</Project>
+      <Name>FirebaseREST.Auth</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

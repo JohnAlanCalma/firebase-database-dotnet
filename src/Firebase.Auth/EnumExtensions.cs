@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     public static class EnumExtensions
     {

@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     /// <summary>
-    /// The type of authentication. 
+    /// The type of authentication.
     /// </summary>
     public enum FirebaseAuthType
     {
@@ -26,8 +26,8 @@ namespace Firebase.Auth.REST
         Github,
 
         /// <summary>
-        /// The twitter auth. 
-        /// </summary> 
+        /// The twitter auth.
+        /// </summary>
         [EnumMember(Value = "twitter.com")]
         Twitter,
 
@@ -36,5 +36,5 @@ namespace Firebase.Auth.REST
         /// </summary>
         [EnumMember(Value = "password")]
         EmailAndPassword
-    } 
+    }
 }

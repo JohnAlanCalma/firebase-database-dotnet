@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     /// <summary>
     /// The auth token provider.
@@ -16,7 +16,7 @@ namespace Firebase.Auth.REST
         /// <param name="sendVerificationEmail"> Optional. Whether to send user a link to verfiy his email address. </param>
         /// <returns> The <see cref="FirebaseAuthLink"/>. </returns>
         Task<FirebaseAuthLink> CreateUserWithEmailAndPasswordAsync(string email, string password, string displayName = "", bool sendVerificationEmail = false);
-        
+
         /// <summary>
         /// Sends user an email with a link to reset his password.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Firebase.Auth.REST
         Task<FirebaseAuthLink> SignInWithCustomTokenAsync(string customToken);
 
         /// <summary>
-        /// Links the authenticated user represented by <see cref="auth"/> with an email and password. 
+        /// Links the authenticated user represented by <see cref="auth"/> with an email and password.
         /// </summary>
         /// <param name="auth"> The authenticated user to link with specified email and password. </param>
         /// <param name="email"> The email. </param>
@@ -63,7 +63,7 @@ namespace Firebase.Auth.REST
         Task<FirebaseAuthLink> LinkAccountsAsync(FirebaseAuth auth, string email, string password);
 
         /// <summary>
-        /// Links the authenticated user represented by <see cref="auth"/> with an email and password. 
+        /// Links the authenticated user represented by <see cref="auth"/> with an email and password.
         /// </summary>
         /// <param name="firebaseToken"> The FirebaseToken (idToken) of an authenticated user. </param>
         /// <param name="email"> The email. </param>

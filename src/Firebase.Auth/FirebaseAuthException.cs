@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     public class FirebaseAuthException : Exception
     {

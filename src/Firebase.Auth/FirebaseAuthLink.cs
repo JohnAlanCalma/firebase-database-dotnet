@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     /// <summary>
     /// The firebase auth which can be linked to another credentials.
@@ -19,14 +19,14 @@ namespace Firebase.Auth.REST
 
         public event EventHandler<FirebaseAuthEventArgs> FirebaseAuthRefreshed;
 
-        internal IFirebaseAuthProvider AuthProvider 
+        internal IFirebaseAuthProvider AuthProvider
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Links the user with an email and password.  
+        /// Links the user with an email and password.
         /// </summary>
         /// <param name="email"> The email. </param>
         /// <param name="password"> The password. </param>
@@ -42,7 +42,7 @@ namespace Firebase.Auth.REST
 
         /// <summary>
         /// Links the this user with and account from a third party provider.
-        /// </summary> 
+        /// </summary>
         /// <param name="authType"> The auth type.  </param>
         /// <param name="oauthAccessToken"> The access token retrieved from login provider of your choice. </param>
         /// <returns> The <see cref="FirebaseAuthLink"/>.  </returns>

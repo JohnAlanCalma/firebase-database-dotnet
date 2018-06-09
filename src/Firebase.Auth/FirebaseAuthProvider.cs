@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
-namespace Firebase.Auth.REST
+namespace FirebaseREST.Auth
 {
     /// <summary>
     /// The auth token provider.
@@ -145,7 +143,7 @@ namespace Firebase.Auth.REST
 
             return signup;
         }
-        
+
         /// <summary>
         /// Deletes the user with a recent Firebase Token.
         /// </summary>
@@ -154,12 +152,12 @@ namespace Firebase.Auth.REST
         {
             var content = $"{{ \"idToken\": \"{firebaseToken}\" }}";
             var responseData = "N/A";
-            
-            try 
+
+            try
             {
                 var response = await this.client.PostAsync(new Uri(string.Format(GoogleDeleteUserUrl, this.authConfig.ApiKey)), new StringContent(content, Encoding.UTF8, "application/json"));
                 responseData = await response.Content.ReadAsStringAsync();
-                
+
                 response.EnsureSuccessStatusCode();
             }
             catch(Exception ex)
@@ -205,7 +203,7 @@ namespace Firebase.Auth.REST
         }
 
         /// <summary>
-        /// Links the authenticated user represented by <see cref="auth"/> with an email and password. 
+        /// Links the authenticated user represented by <see cref="auth"/> with an email and password.
         /// </summary>
         /// <param name="firebaseToken"> The FirebaseToken (idToken) of an authenticated user. </param>
         /// <param name="email"> The email. </param>
@@ -219,7 +217,7 @@ namespace Firebase.Auth.REST
         }
 
         /// <summary>
-        /// Links the authenticated user represented by <see cref="auth"/> with an email and password. 
+        /// Links the authenticated user represented by <see cref="auth"/> with an email and password.
         /// </summary>
         /// <param name="auth"> The authenticated user to link with specified email and password. </param>
         /// <param name="email"> The email. </param>
@@ -313,7 +311,7 @@ namespace Firebase.Auth.REST
         }
 
         /// <summary>
-        /// Disposes all allocated resources. 
+        /// Disposes all allocated resources.
         /// </summary>
         public void Dispose()
         {
@@ -399,7 +397,7 @@ namespace Firebase.Auth.REST
                         case "EMAIL_EXISTS":
                             failureReason = AuthErrorReason.EmailExists;
                             break;
-                            
+
                         //possible errors from Account Delete
                         case "USER_NOT_FOUND":
                             failureReason = AuthErrorReason.UserNotFound;
