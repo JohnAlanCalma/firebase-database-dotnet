@@ -91,7 +91,7 @@ namespace Firebase.Auth.Tests
                 refreshedAuth.User = await authProvider.GetUserAsync(refreshedAuth.FirebaseToken);
 
                 Console.WriteLine(
-                    $"Refreshed anonymous log in: LocalID [{refreshedAuth.User.LocalId}] FederatedID [{refreshedAuth.User.FederatedId}] Access token [{refreshedAuth.FirebaseToken}] Refresh token [{refreshedAuth.RefreshToken}] Expires [{refreshedAuth.Created.AddSeconds(refreshedAuth.ExpiresIn)}]");
+                    $"Refreshed anonymous log in: LocalID [{refreshedAuth.User.LocalId}] DisplayName [{refreshedAuth.User.DisplayName}] Access token [{refreshedAuth.FirebaseToken}] Refresh token [{refreshedAuth.RefreshToken}] Expires [{refreshedAuth.Created.AddSeconds(refreshedAuth.ExpiresIn)}]");
             }
         }
 
@@ -104,7 +104,7 @@ namespace Firebase.Auth.Tests
                 FirebaseAuthLink anonAuth = await authProvider.SignInAnonymouslyAsync();
                 refreshToken = anonAuth.RefreshToken;
                 Console.WriteLine(
-                    $"Anonymous log in: LocalID [{anonAuth.User.LocalId}] FederatedID [{anonAuth.User.FederatedId}] Access token [{anonAuth.FirebaseToken}] Refresh token [{anonAuth.RefreshToken}] Expires [{anonAuth.Created.AddSeconds(anonAuth.ExpiresIn)}]");
+                    $"Anonymous log in: LocalID [{anonAuth.User.LocalId}] DisplayName [{anonAuth.User.DisplayName}] Access token [{anonAuth.FirebaseToken}] Refresh token [{anonAuth.RefreshToken}] Expires [{anonAuth.Created.AddSeconds(anonAuth.ExpiresIn)}]");
             }
 
             using (var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ApiKey)))
@@ -118,7 +118,7 @@ namespace Firebase.Auth.Tests
                 refreshedAuth.User = await authProvider.GetUserAsync(refreshedAuth.FirebaseToken);
 
                 Console.WriteLine(
-                    $"Refreshed anonymous log in: LocalID [{refreshedAuth.User.LocalId}] FederatedID [{refreshedAuth.User.FederatedId}] Access token [{refreshedAuth.FirebaseToken}] Refresh token [{refreshedAuth.RefreshToken}] Expires [{refreshedAuth.Created.AddSeconds(refreshedAuth.ExpiresIn)}]");
+                    $"Refreshed anonymous log in: LocalID [{refreshedAuth.User.LocalId}] DisplayName [{refreshedAuth.User.DisplayName}] Access token [{refreshedAuth.FirebaseToken}] Refresh token [{refreshedAuth.RefreshToken}] Expires [{refreshedAuth.Created.AddSeconds(refreshedAuth.ExpiresIn)}]");
             }
         }
 
